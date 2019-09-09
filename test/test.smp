@@ -1,0 +1,7 @@
+inicio
+	entero x
+	entero y
+	entero z
+	escribir(x y z)
+fin
+

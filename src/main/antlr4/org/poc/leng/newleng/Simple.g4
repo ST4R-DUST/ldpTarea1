@@ -77,7 +77,7 @@ declaration		: variable_type ID
 
 read_block: READ_RW LPAR ID RPAR # read;
 
-write_block: WRITE_RW LPAR (STRING | ID+) RPAR # print;
+write_block: WRITE_RW LPAR STRING RPAR # print;
 
 
 fragment TRUE	: 'v'		;

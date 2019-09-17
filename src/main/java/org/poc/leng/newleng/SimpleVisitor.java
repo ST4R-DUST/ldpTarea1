@@ -17,11 +17,11 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgram(SimpleParser.ProgramContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#body}.
+	 * Visit a parse tree produced by {@link SimpleParser#stat}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBody(SimpleParser.BodyContext ctx);
+	T visitStat(SimpleParser.StatContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleParser#start_block}.
 	 * @param ctx the parse tree
@@ -35,17 +35,47 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEnd_block(SimpleParser.End_blockContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#while_block}.
+	 * Visit a parse tree produced by the {@code comp}
+	 * labeled alternative in {@link SimpleParser#operation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWhile_block(SimpleParser.While_blockContext ctx);
+	T visitComp(SimpleParser.CompContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#assign}.
+	 * Visit a parse tree produced by the {@code parens}
+	 * labeled alternative in {@link SimpleParser#operation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssign(SimpleParser.AssignContext ctx);
+	T visitParens(SimpleParser.ParensContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code or}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOr(SimpleParser.OrContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code and}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnd(SimpleParser.AndContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code id}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitId(SimpleParser.IdContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code plus}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlus(SimpleParser.PlusContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleParser#if_block}.
 	 * @param ctx the parse tree
@@ -53,23 +83,29 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIf_block(SimpleParser.If_blockContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#write_block}.
+	 * Visit a parse tree produced by {@link SimpleParser#condition_block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWrite_block(SimpleParser.Write_blockContext ctx);
+	T visitCondition_block(SimpleParser.Condition_blockContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#read_block}.
+	 * Visit a parse tree produced by {@link SimpleParser#else_block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRead_block(SimpleParser.Read_blockContext ctx);
+	T visitElse_block(SimpleParser.Else_blockContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#declaration}.
+	 * Visit a parse tree produced by {@link SimpleParser#block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDeclaration(SimpleParser.DeclarationContext ctx);
+	T visitBlock(SimpleParser.BlockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleParser#assign}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssign(SimpleParser.AssignContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleParser#var_type}.
 	 * @param ctx the parse tree
@@ -77,39 +113,23 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVar_type(SimpleParser.Var_typeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#body_block}.
+	 * Visit a parse tree produced by {@link SimpleParser#declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBody_block(SimpleParser.Body_blockContext ctx);
+	T visitDeclaration(SimpleParser.DeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#expr}.
+	 * Visit a parse tree produced by the {@code read}
+	 * labeled alternative in {@link SimpleParser#read_block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr(SimpleParser.ExprContext ctx);
+	T visitRead(SimpleParser.ReadContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleParser#expr_real}.
+	 * Visit a parse tree produced by the {@code write}
+	 * labeled alternative in {@link SimpleParser#write_block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExpr_real(SimpleParser.Expr_realContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link SimpleParser#expr_nat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpr_nat(SimpleParser.Expr_natContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link SimpleParser#expr_string}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpr_string(SimpleParser.Expr_stringContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link SimpleParser#op}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOp(SimpleParser.OpContext ctx);
+	T visitWrite(SimpleParser.WriteContext ctx);
 }

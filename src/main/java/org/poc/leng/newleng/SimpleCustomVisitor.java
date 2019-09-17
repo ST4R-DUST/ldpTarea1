@@ -11,17 +11,17 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 //
 	@Override
     public Object visitStart_block(SimpleParser.Start_blockContext ctx) { 
-	    	if(ctx.INIT().getText().equals("inicio"))    {
+	    	if(ctx.INIT().getText().equals("init"))    {
 	    	System.out.println("#include <stdio.h>");
 			System.out.println("");
-			System.out.println("int main(void) {");
+			System.out.println("int main(void)\n{");
 		}
 	    return null;
 	}
 //	
 	@Override
 	public Object visitEnd_block(SimpleParser.End_blockContext ctx) {
-	    	if(ctx.END().getText().equals("fin"))    {
+	    	if(ctx.END().getText().equals("end"))    {
 	    		System.out.println("\treturn 0;");
 	    		System.out.println("}");
 	    	}
@@ -75,7 +75,7 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 //	}
 //	
 	@Override
-	public Object visitWrite_block(SimpleParser.Write_blockContext ctx) {
+	public Object visitWrite(SimpleParser.WriteContext ctx) {
 		if (ctx.VARID().size() > 0) {
 			String id, format = "", args = "";
 			for (int i = 0; i < ctx.VARID().size(); i++) {

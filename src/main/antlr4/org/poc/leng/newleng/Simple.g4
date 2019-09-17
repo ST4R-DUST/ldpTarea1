@@ -1,119 +1,121 @@
+//grammar Simple;
+
+//r  : 'hello' VARID ;         // match keyword hello followed by an VARIDentifier
+
+//VARID : [a-z]+ ;             // match lower-case VARIDentifiers
+
+//WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+
 grammar Simple;
 
-program 	: start_block body+ end_block
+
+//s 		: operation EOF					
+//		;
+
+program	: start_block stat+	end_block	
+		;
+
+stat		: declaration
+			| assign
+    		| operation
+    		| if_block
+    		| read_block
+    		| write_block 
+    		;
+
+start_block : INIT	
 			;
 
-body		: declaration 
-			| assign                                                      
-    		| if_block                                                      
-    		| read_block                                                    
-    		| write_block
-    		| while_block
-    		;                                                   
-
-start_block	: INIT
-			; 
-			                                                  
-end_block	: END
-			;                                                        
-
-while_block : LPAR expr RPAR LCOR body_block RCOR
-			; 
-			
-assign 		: VARID ASSIGN expr  
-			| VARID ASSIGN (VARID | NUM)            
-			;
-		 
-if_block	: IF expr THEN body_block (ELIF expr THEN body_block)* (ELSE THEN body_block)?  
-			;
-		
-write_block	: WRITE LPAR (STRING | VARID+) RPAR
-			;
-			
-read_block	: READ LPAR VARID RPAR                                    
-			;
-			
-declaration	: var_type VARID 
-			| var_type assign 
-			;
-			
-var_type	: FLOAT_V 
-			| INT_V 
-			| BOOLEAN_V 
-			| STRING_V 
-			;
-			
-body_block	: body*  
-			;
-			
-expr 		: expr_nat 
-			| expr_real 
-			| expr_string                         
+end_block	: END		
 			;
 
-expr_real 	: LPAR expr_real op expr_real RPAR 
-			| FLOAT                
+operation  	: operation PLUS operation 				# plus
+            | operation ( EQUAL | NQUAL ) operation 	# comp
+            | operation AND operation 				# and
+            | operation OR operation 				# or
+            | operation GT operation 				# comp
+            | VARID 								# id
+            | LPAR operation RPAR 					# parens
+            ;
+
+
+if_block		: IF_RW condition_block 
+			  (ELIF_RW condition_block)* 
+			  (ELSE_RW else_block)? 
+			  ENDIF_RW
 			;
 
-expr_nat 	: LPAR expr_nat op expr_nat RPAR 
-			| NUM                     
+condition_block	: LPAR operation RPAR LBRACE block RBRACE
+				| LPAR operation RPAR stat
+				;
+
+else_block	: LBRACE block RBRACE
+            | stat
 			;
-			
-expr_string : expr_string op expr_string 
-			| STRING                   
+
+block		: stat* 
 			;
 
-op 			: PLUS 
-			| MINUS 
-			| MULT 
-			| GT 
-			| LT 
-			| EQT                            
-			;
-                                                  
+assign 		: VARID ASSIGN 
+			( operation
+			| VARID 
+			| NUMBER 
+			| FLOAT 
+			| STRING 
+			| BOOLEAN
+			) ; 
+
+var_type	: INTEGER_RW
+				| REAL_RW 
+				| STRING_RW
+				| BOOLEAN_RW
+				;
+
+declaration		: var_type VARID
+				| var_type assign  
+				;
+
+read_block: READ_RW LPAR VARID RPAR # read;
+
+write_block: WRITE_RW LPAR (STRING | VARID+) RPAR # write;
 
 
-fragment INT : [0-9]			;                                                
-fragment DOT: '.'    	        ;
-fragment TRUE : 'true'			;
-fragment FALSE: 'false'			;
+fragment TRUE	: 'v'		;
+fragment FALSE	: 'f'		;
+fragment NAT		: [0-9]		;
+fragment DOT		: '.'		;
+ 
+PLUS 	: '+'	;
+MINUS	: '-'	;
+AND		: 'and'	;
+OR		: 'or'	;
+EQUAL	: '='	;
+NQUAL	: '<>'	;
+GT		: '>'	;
+ASSIGN 	: '<-'	;
+LPAR		: '('	;
+RPAR		: ')'	;
+LBRACE	: '{'	;
+RBRACE	: '}'	;
 
-//COMMENT	:  '!' .*? '\r'? '\n' -> skip	                            ;
-//WS 		: [ \t\r\n]+ -> skip                                        ;
+INIT		: 'init'	;
+END		: 'end'		;
+IF_RW		: 'si'		;
+ELIF_RW		: 'sino_si'	;
+ELSE_RW		: 'sino'		;
+ENDIF_RW		: 'fin_si'	;
+READ_RW		: 'leer'		;
+WRITE_RW		: 'escribir'	;
+INTEGER_RW	: 'entero'	;
+STRING_RW	: 'cadena'	;
+REAL_RW		: 'real'		;
+BOOLEAN_RW	: 'logico'	;
 
-VARID:	[a-zA-Z]+	;
+NUMBER	: NAT+				;
+FLOAT 	: NUMBER DOT NUMBER	;
+BOOLEAN 	: TRUE | FALSE		;
+STRING 	: '"' .*? '"'		;
 
-WRITE:  'write'         ;
-READ:   'read'          ;
-STRING: '"'.*?'"'		;
-NUM:	INT+			;
-FLOAT: 	INT DOT INT  	;
-BOOLEAN: TRUE | FALSE	;
-FLOAT_V: 'float'		;
-INT_V: 	'int'			;
-STRING_V:'str'			;
-BOOLEAN_V:'boolean'		;
-
-IF : 'if'	;
-ELIF: 'elif';
-ELSE: 'else';
-THEN: ':'	;
-
-GT: '>'		;
-LT: '<'		;
-EQT: '=='	;
-ASSIGN: '<-';
-
-INIT : 'init'	;
-END : 'end'		;
-
-LPAR: '('		;
-RPAR: ')'		;
-
-LCOR: '{'		;
-RCOR: '}'		;
-
-PLUS : '+'		;
-MINUS : '-'		;
-MULT : '*'		;
-
+VARID		: [a-zA-Z]+						;
+COMMENT	:  '!' .*? '\r'? '\n' -> skip	;
+WS 		: [ \t\r\n]+ -> skip 			;

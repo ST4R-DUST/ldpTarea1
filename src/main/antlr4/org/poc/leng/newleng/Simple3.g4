@@ -21,7 +21,7 @@ while_block : LPAR expr RPAR LCOR body_block RCOR
 			; 
 			
 assign 		: VARID ASSIGN expr  
-			| VARID ASSIGN (VARID | NUM)            
+			| VARID ASSIGN (VARID | INT)            
 			;
 		 
 if_block	: IF expr THEN body_block (ELIF expr THEN body_block)* (ELSE THEN body_block)?  
@@ -56,7 +56,7 @@ expr_real 	: LPAR expr_real op expr_real RPAR
 			;
 
 expr_nat 	: LPAR expr_nat op expr_nat RPAR 
-			| NUM                     
+			| INT                     
 			;
 			
 expr_string : expr_string op expr_string 
@@ -73,7 +73,7 @@ op 			: PLUS
                                                   
 
 
-fragment INT : [0-9]			;                                                
+fragment NAT : [0-9]			;                                                
 fragment DOT: '.'    	        ;
 fragment TRUE : 'true'			;
 fragment FALSE: 'false'			;
@@ -86,7 +86,7 @@ VARID:	[a-zA-Z]+	;
 WRITE:  'write'         ;
 READ:   'read'          ;
 STRING: '"'.*?'"'		;
-NUM:	INT+			;
+INT:	NAT+			;
 FLOAT: 	INT DOT INT  	;
 BOOLEAN: TRUE | FALSE	;
 FLOAT_V: 'float'		;

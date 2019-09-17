@@ -1,2 +1,3 @@
-inicio
-fin
+init
+	entero x
+end

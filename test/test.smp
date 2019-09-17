@@ -1,7 +1,2 @@
 inicio
-	entero x
-	entero y
-	entero z
-	escribir("xyz")
 fin
-

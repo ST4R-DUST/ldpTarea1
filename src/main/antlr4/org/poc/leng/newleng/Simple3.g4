@@ -1,4 +1,4 @@
-grammar Simple;
+grammar Simple3;
 
 program 	: start_block body+ end_block
 			;

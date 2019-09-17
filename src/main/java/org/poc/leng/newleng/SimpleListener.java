@@ -1,6 +1,5 @@
-// Generated from Simple.g4 by ANTLR 4.4
+// Generated from Simple.g4 by ANTLR 4.6
 package org.poc.leng.newleng;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -9,209 +8,173 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface SimpleListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link SimpleParser#if_block}.
-	 * @param ctx the parse tree
-	 */
-	void enterIf_block(@NotNull SimpleParser.If_blockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleParser#if_block}.
-	 * @param ctx the parse tree
-	 */
-	void exitIf_block(@NotNull SimpleParser.If_blockContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code comp}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void enterComp(@NotNull SimpleParser.CompContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code comp}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void exitComp(@NotNull SimpleParser.CompContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link SimpleParser#stat}.
-	 * @param ctx the parse tree
-	 */
-	void enterStat(@NotNull SimpleParser.StatContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleParser#stat}.
-	 * @param ctx the parse tree
-	 */
-	void exitStat(@NotNull SimpleParser.StatContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code parens}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void enterParens(@NotNull SimpleParser.ParensContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code parens}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void exitParens(@NotNull SimpleParser.ParensContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code or}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void enterOr(@NotNull SimpleParser.OrContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code or}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void exitOr(@NotNull SimpleParser.OrContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code read}
-	 * labeled alternative in {@link SimpleParser#read_block}.
-	 * @param ctx the parse tree
-	 */
-	void enterRead(@NotNull SimpleParser.ReadContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code read}
-	 * labeled alternative in {@link SimpleParser#read_block}.
-	 * @param ctx the parse tree
-	 */
-	void exitRead(@NotNull SimpleParser.ReadContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link SimpleParser#variable_type}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariable_type(@NotNull SimpleParser.Variable_typeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleParser#variable_type}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariable_type(@NotNull SimpleParser.Variable_typeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link SimpleParser#condition_block}.
-	 * @param ctx the parse tree
-	 */
-	void enterCondition_block(@NotNull SimpleParser.Condition_blockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleParser#condition_block}.
-	 * @param ctx the parse tree
-	 */
-	void exitCondition_block(@NotNull SimpleParser.Condition_blockContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link SimpleParser#program}.
 	 * @param ctx the parse tree
 	 */
-	void enterProgram(@NotNull SimpleParser.ProgramContext ctx);
+	void enterProgram(SimpleParser.ProgramContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link SimpleParser#program}.
 	 * @param ctx the parse tree
 	 */
-	void exitProgram(@NotNull SimpleParser.ProgramContext ctx);
+	void exitProgram(SimpleParser.ProgramContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SimpleParser#end_block}.
+	 * Enter a parse tree produced by {@link SimpleParser#body}.
 	 * @param ctx the parse tree
 	 */
-	void enterEnd_block(@NotNull SimpleParser.End_blockContext ctx);
+	void enterBody(SimpleParser.BodyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SimpleParser#end_block}.
+	 * Exit a parse tree produced by {@link SimpleParser#body}.
 	 * @param ctx the parse tree
 	 */
-	void exitEnd_block(@NotNull SimpleParser.End_blockContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link SimpleParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterDeclaration(@NotNull SimpleParser.DeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleParser#declaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitDeclaration(@NotNull SimpleParser.DeclarationContext ctx);
+	void exitBody(SimpleParser.BodyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SimpleParser#start_block}.
 	 * @param ctx the parse tree
 	 */
-	void enterStart_block(@NotNull SimpleParser.Start_blockContext ctx);
+	void enterStart_block(SimpleParser.Start_blockContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link SimpleParser#start_block}.
 	 * @param ctx the parse tree
 	 */
-	void exitStart_block(@NotNull SimpleParser.Start_blockContext ctx);
+	void exitStart_block(SimpleParser.Start_blockContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code plus}
-	 * labeled alternative in {@link SimpleParser#operation}.
+	 * Enter a parse tree produced by {@link SimpleParser#end_block}.
 	 * @param ctx the parse tree
 	 */
-	void enterPlus(@NotNull SimpleParser.PlusContext ctx);
+	void enterEnd_block(SimpleParser.End_blockContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code plus}
-	 * labeled alternative in {@link SimpleParser#operation}.
+	 * Exit a parse tree produced by {@link SimpleParser#end_block}.
 	 * @param ctx the parse tree
 	 */
-	void exitPlus(@NotNull SimpleParser.PlusContext ctx);
+	void exitEnd_block(SimpleParser.End_blockContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link SimpleParser#else_block}.
+	 * Enter a parse tree produced by {@link SimpleParser#while_block}.
 	 * @param ctx the parse tree
 	 */
-	void enterElse_block(@NotNull SimpleParser.Else_blockContext ctx);
+	void enterWhile_block(SimpleParser.While_blockContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link SimpleParser#else_block}.
+	 * Exit a parse tree produced by {@link SimpleParser#while_block}.
 	 * @param ctx the parse tree
 	 */
-	void exitElse_block(@NotNull SimpleParser.Else_blockContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code print}
-	 * labeled alternative in {@link SimpleParser#write_block}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrint(@NotNull SimpleParser.PrintContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code print}
-	 * labeled alternative in {@link SimpleParser#write_block}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrint(@NotNull SimpleParser.PrintContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code and}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnd(@NotNull SimpleParser.AndContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code and}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnd(@NotNull SimpleParser.AndContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link SimpleParser#block}.
-	 * @param ctx the parse tree
-	 */
-	void enterBlock(@NotNull SimpleParser.BlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link SimpleParser#block}.
-	 * @param ctx the parse tree
-	 */
-	void exitBlock(@NotNull SimpleParser.BlockContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code id}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void enterId(@NotNull SimpleParser.IdContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code id}
-	 * labeled alternative in {@link SimpleParser#operation}.
-	 * @param ctx the parse tree
-	 */
-	void exitId(@NotNull SimpleParser.IdContext ctx);
+	void exitWhile_block(SimpleParser.While_blockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SimpleParser#assign}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssign(@NotNull SimpleParser.AssignContext ctx);
+	void enterAssign(SimpleParser.AssignContext ctx);
 	/**
 	 * Exit a parse tree produced by {@link SimpleParser#assign}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssign(@NotNull SimpleParser.AssignContext ctx);
+	void exitAssign(SimpleParser.AssignContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#if_block}.
+	 * @param ctx the parse tree
+	 */
+	void enterIf_block(SimpleParser.If_blockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#if_block}.
+	 * @param ctx the parse tree
+	 */
+	void exitIf_block(SimpleParser.If_blockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#write_block}.
+	 * @param ctx the parse tree
+	 */
+	void enterWrite_block(SimpleParser.Write_blockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#write_block}.
+	 * @param ctx the parse tree
+	 */
+	void exitWrite_block(SimpleParser.Write_blockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#read_block}.
+	 * @param ctx the parse tree
+	 */
+	void enterRead_block(SimpleParser.Read_blockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#read_block}.
+	 * @param ctx the parse tree
+	 */
+	void exitRead_block(SimpleParser.Read_blockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#declaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterDeclaration(SimpleParser.DeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#declaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitDeclaration(SimpleParser.DeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#var_type}.
+	 * @param ctx the parse tree
+	 */
+	void enterVar_type(SimpleParser.Var_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#var_type}.
+	 * @param ctx the parse tree
+	 */
+	void exitVar_type(SimpleParser.Var_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#body_block}.
+	 * @param ctx the parse tree
+	 */
+	void enterBody_block(SimpleParser.Body_blockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#body_block}.
+	 * @param ctx the parse tree
+	 */
+	void exitBody_block(SimpleParser.Body_blockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr(SimpleParser.ExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr(SimpleParser.ExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#expr_real}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_real(SimpleParser.Expr_realContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#expr_real}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_real(SimpleParser.Expr_realContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#expr_nat}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_nat(SimpleParser.Expr_natContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#expr_nat}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_nat(SimpleParser.Expr_natContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#expr_string}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr_string(SimpleParser.Expr_stringContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#expr_string}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr_string(SimpleParser.Expr_stringContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#op}.
+	 * @param ctx the parse tree
+	 */
+	void enterOp(SimpleParser.OpContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#op}.
+	 * @param ctx the parse tree
+	 */
+	void exitOp(SimpleParser.OpContext ctx);
 }

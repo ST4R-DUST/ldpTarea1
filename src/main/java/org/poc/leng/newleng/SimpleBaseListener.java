@@ -1,8 +1,7 @@
-// Generated from Simple.g4 by ANTLR 4.4
+// Generated from Simple.g4 by ANTLR 4.6
 package org.poc.leng.newleng;
 
 import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -17,252 +16,228 @@ public class SimpleBaseListener implements SimpleListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIf_block(@NotNull SimpleParser.If_blockContext ctx) { }
+	@Override public void enterProgram(SimpleParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIf_block(@NotNull SimpleParser.If_blockContext ctx) { }
+	@Override public void exitProgram(SimpleParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterComp(@NotNull SimpleParser.CompContext ctx) { }
+	@Override public void enterBody(SimpleParser.BodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitComp(@NotNull SimpleParser.CompContext ctx) { }
+	@Override public void exitBody(SimpleParser.BodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStat(@NotNull SimpleParser.StatContext ctx) { }
+	@Override public void enterStart_block(SimpleParser.Start_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStat(@NotNull SimpleParser.StatContext ctx) { }
+	@Override public void exitStart_block(SimpleParser.Start_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParens(@NotNull SimpleParser.ParensContext ctx) { }
+	@Override public void enterEnd_block(SimpleParser.End_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParens(@NotNull SimpleParser.ParensContext ctx) { }
+	@Override public void exitEnd_block(SimpleParser.End_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOr(@NotNull SimpleParser.OrContext ctx) { }
+	@Override public void enterWhile_block(SimpleParser.While_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOr(@NotNull SimpleParser.OrContext ctx) { }
+	@Override public void exitWhile_block(SimpleParser.While_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRead(@NotNull SimpleParser.ReadContext ctx) { }
+	@Override public void enterAssign(SimpleParser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRead(@NotNull SimpleParser.ReadContext ctx) { }
+	@Override public void exitAssign(SimpleParser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariable_type(@NotNull SimpleParser.Variable_typeContext ctx) { }
+	@Override public void enterIf_block(SimpleParser.If_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariable_type(@NotNull SimpleParser.Variable_typeContext ctx) { }
+	@Override public void exitIf_block(SimpleParser.If_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCondition_block(@NotNull SimpleParser.Condition_blockContext ctx) { }
+	@Override public void enterWrite_block(SimpleParser.Write_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCondition_block(@NotNull SimpleParser.Condition_blockContext ctx) { }
+	@Override public void exitWrite_block(SimpleParser.Write_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProgram(@NotNull SimpleParser.ProgramContext ctx) { }
+	@Override public void enterRead_block(SimpleParser.Read_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProgram(@NotNull SimpleParser.ProgramContext ctx) { }
+	@Override public void exitRead_block(SimpleParser.Read_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEnd_block(@NotNull SimpleParser.End_blockContext ctx) { }
+	@Override public void enterDeclaration(SimpleParser.DeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEnd_block(@NotNull SimpleParser.End_blockContext ctx) { }
+	@Override public void exitDeclaration(SimpleParser.DeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDeclaration(@NotNull SimpleParser.DeclarationContext ctx) { }
+	@Override public void enterVar_type(SimpleParser.Var_typeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDeclaration(@NotNull SimpleParser.DeclarationContext ctx) { }
+	@Override public void exitVar_type(SimpleParser.Var_typeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStart_block(@NotNull SimpleParser.Start_blockContext ctx) { }
+	@Override public void enterBody_block(SimpleParser.Body_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStart_block(@NotNull SimpleParser.Start_blockContext ctx) { }
+	@Override public void exitBody_block(SimpleParser.Body_blockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPlus(@NotNull SimpleParser.PlusContext ctx) { }
+	@Override public void enterExpr(SimpleParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPlus(@NotNull SimpleParser.PlusContext ctx) { }
+	@Override public void exitExpr(SimpleParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElse_block(@NotNull SimpleParser.Else_blockContext ctx) { }
+	@Override public void enterExpr_real(SimpleParser.Expr_realContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElse_block(@NotNull SimpleParser.Else_blockContext ctx) { }
+	@Override public void exitExpr_real(SimpleParser.Expr_realContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrint(@NotNull SimpleParser.PrintContext ctx) { }
+	@Override public void enterExpr_nat(SimpleParser.Expr_natContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrint(@NotNull SimpleParser.PrintContext ctx) { }
+	@Override public void exitExpr_nat(SimpleParser.Expr_natContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnd(@NotNull SimpleParser.AndContext ctx) { }
+	@Override public void enterExpr_string(SimpleParser.Expr_stringContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnd(@NotNull SimpleParser.AndContext ctx) { }
+	@Override public void exitExpr_string(SimpleParser.Expr_stringContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlock(@NotNull SimpleParser.BlockContext ctx) { }
+	@Override public void enterOp(SimpleParser.OpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBlock(@NotNull SimpleParser.BlockContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterId(@NotNull SimpleParser.IdContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitId(@NotNull SimpleParser.IdContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAssign(@NotNull SimpleParser.AssignContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAssign(@NotNull SimpleParser.AssignContext ctx) { }
+	@Override public void exitOp(SimpleParser.OpContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void enterEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void exitEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitTerminal(@NotNull TerminalNode node) { }
+	@Override public void visitTerminal(TerminalNode node) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitErrorNode(@NotNull ErrorNode node) { }
+	@Override public void visitErrorNode(ErrorNode node) { }
 }

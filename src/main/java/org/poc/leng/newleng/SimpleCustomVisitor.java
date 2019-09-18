@@ -43,16 +43,37 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
         
 		return null;
 	}
-	/*@Override
+	@Override
 	public Object visitPlus(SimpleParser.PlusContext ctx) 
 	{
-		String suma = ctx.PLUS().getText();
-		System.out.println("\t"+ctx.getText()+";");
-		ctx.
 		return null;
-	}*/
+	}
+	@Override
+	public Object visitAssign(SimpleParser.AssignContext ctx) 
+	{
+		System.out.print("\t"+ctx.VARID(0).getText()+" = ");    
+		SimpleParser.OperationContext subCtx = ctx.operation();
+		System.out.println(subCtx.getText()+";");
+		return null;
+	}
+	@Override
+	public Object visitIf_block(SimpleParser.If_blockContext ctx)
+	{
+		SimpleParser.Condition_blockContext condCTX = ctx.condition_block(0);
+		SimpleParser.BlockContext blockCTX = condCTX.block();
+		System.out.println("\tif("+condCTX.condOperation().getText()+")");
+		System.out.println("\t{");
+		for(int i = 0; i < blockCTX.stat().size();i++)
+		{
+			System.out.println("\t"+visit(blockCTX.stat(i)));
+		}
+		System.out.println("\t}");
+		
+		
+		return null;
+	}
 	/*@Override
-	public Object visitPrint(SimpleParser.PrintContext ctx) 
+	public Object visitWrite(SimpleParser.WriteContext ctx) 
 	{
 		String texto="";
 		if(!ctx.STRING().getText().isEmpty())
@@ -104,9 +125,9 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 //	}
 //	
 	private String getVarType(String var_type) {
-		if(var_type.equals("entero") || var_type.equals("logico"))
+		if(var_type.equals("int") || var_type.equals("bool"))
 			return "int";
-		else if(var_type.equals("real"))
+		else if(var_type.equals("float"))
 			return "float";
 		else
 			return "char";
@@ -121,6 +142,10 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 			return "%s";
 	}
 	
+	private String getStatType(String stat_type)
+	{
+		return "placeholder";
+	}
 //	private String replace(String stat) {
 //		stat.replace("=", "==");
 //		stat.replace("<>", "!=");

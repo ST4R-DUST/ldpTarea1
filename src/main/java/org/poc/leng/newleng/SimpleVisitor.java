@@ -35,6 +35,13 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEnd_block(SimpleParser.End_blockContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code minus}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMinus(SimpleParser.MinusContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code comp}
 	 * labeled alternative in {@link SimpleParser#operation}.
 	 * @param ctx the parse tree
@@ -63,6 +70,13 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAnd(SimpleParser.AndContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code num}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNum(SimpleParser.NumContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code id}
 	 * labeled alternative in {@link SimpleParser#operation}.
 	 * @param ctx the parse tree
@@ -76,6 +90,27 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPlus(SimpleParser.PlusContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code equal}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEqual(SimpleParser.EqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code gt}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGt(SimpleParser.GtContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code lt}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLt(SimpleParser.LtContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleParser#if_block}.
 	 * @param ctx the parse tree

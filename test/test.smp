@@ -1,3 +1,13 @@
 init
-	entero x
+	int x
+	int y
+	write("holi")
+	x <- x-y+x+y
+	y <- y+1
+	if(x+1 == 0)
+	{
+		write("cringe")
+		x <- 1+2+3
+	}
+	fi
 end

@@ -157,7 +157,7 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 		else
 			return "String";
 	}
-//	
+	
 	private String getVarTypeMode(String var_type) {
 		if(var_type.equals("int"))
 			return "%d";
@@ -166,13 +166,6 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 		else
 			return "%s";
 	}
-//	private String replace(String stat) {
-//		stat.replace("=", "==");
-//		stat.replace("<>", "!=");
-//		stat.replace("AND", "&&");
-//		stat.replace("OR", "&&");
-//		return stat;
-//	}
-//	
+
 	
 }

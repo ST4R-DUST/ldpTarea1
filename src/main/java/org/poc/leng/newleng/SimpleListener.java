@@ -120,6 +120,18 @@ public interface SimpleListener extends ParseTreeListener {
 	 */
 	void exitNum(SimpleParser.NumContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code divide}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void enterDivide(SimpleParser.DivideContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code divide}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void exitDivide(SimpleParser.DivideContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code id}
 	 * labeled alternative in {@link SimpleParser#operation}.
 	 * @param ctx the parse tree
@@ -131,6 +143,18 @@ public interface SimpleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitId(SimpleParser.IdContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code multiply}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiply(SimpleParser.MultiplyContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code multiply}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiply(SimpleParser.MultiplyContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code plus}
 	 * labeled alternative in {@link SimpleParser#operation}.
@@ -155,6 +179,30 @@ public interface SimpleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEqual(SimpleParser.EqualContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code gte}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 */
+	void enterGte(SimpleParser.GteContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code gte}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 */
+	void exitGte(SimpleParser.GteContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code lte}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 */
+	void enterLte(SimpleParser.LteContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code lte}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 */
+	void exitLte(SimpleParser.LteContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code gt}
 	 * labeled alternative in {@link SimpleParser#condOperation}.
@@ -189,6 +237,16 @@ public interface SimpleListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIf_block(SimpleParser.If_blockContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SimpleParser#while_block}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhile_block(SimpleParser.While_blockContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SimpleParser#while_block}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhile_block(SimpleParser.While_blockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SimpleParser#condition_block}.
 	 * @param ctx the parse tree

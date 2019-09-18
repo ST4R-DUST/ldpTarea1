@@ -77,12 +77,26 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNum(SimpleParser.NumContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code divide}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivide(SimpleParser.DivideContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code id}
 	 * labeled alternative in {@link SimpleParser#operation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitId(SimpleParser.IdContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code multiply}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiply(SimpleParser.MultiplyContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code plus}
 	 * labeled alternative in {@link SimpleParser#operation}.
@@ -97,6 +111,20 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitEqual(SimpleParser.EqualContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code gte}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGte(SimpleParser.GteContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code lte}
+	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLte(SimpleParser.LteContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code gt}
 	 * labeled alternative in {@link SimpleParser#condOperation}.
@@ -117,6 +145,12 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIf_block(SimpleParser.If_blockContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleParser#while_block}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhile_block(SimpleParser.While_blockContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleParser#condition_block}.
 	 * @param ctx the parse tree

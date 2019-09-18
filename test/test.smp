@@ -1,6 +1,8 @@
 init
 	int x
 	int y
+	float kiti
+	string cuerda
 	write("holi")
 	x <- x-y+x+y
 	y <- y+1
@@ -9,5 +11,29 @@ init
 		write("cringe")
 		x <- 1+2+3
 	}
+	elif(y+1 == 3)
+	{
+		write("godhelpme")
+		x <- 443+213
+	}
+	elif(x+3==5)
+	{
+		write("whatsgoingon")
+		y <- 42+32
+	}
 	fi
+	
+	if(x+2 == 30)
+	{
+		write("kiti")
+	}
+	else
+	{
+		write("doge")
+	}
+	fi
+	while(x<5)
+	{
+		write("aaaa")
+	}	
 end

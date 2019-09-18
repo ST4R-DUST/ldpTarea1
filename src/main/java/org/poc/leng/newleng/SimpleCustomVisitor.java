@@ -65,36 +65,53 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 		System.out.println("\t{");
 		for(int i = 0; i < blockCTX.stat().size();i++)
 		{
-			System.out.println("\t"+visit(blockCTX.stat(i)));
+			System.out.print("\t");
+			visit(blockCTX.stat(i));
 		}
 		System.out.println("\t}");
-		
+		if(!ctx.ELIF().isEmpty())
+		{
+			for(int j = 1; j <= ctx.ELIF().size();j++) //Por alguna razón, esta es la manera correcta de definir esto
+			{
+				condCTX = ctx.condition_block(j);
+				blockCTX = condCTX.block();
+				System.out.println("\telse if("+condCTX.condOperation().getText()+")\n\t{");
+				for(int i = 0; i < blockCTX.stat().size();i++)
+				{
+					System.out.print("\t");
+					visit(blockCTX.stat(i));
+				}
+				System.out.println("\t}");
+			}
+			
+		}
+		if(ctx.ELSE()!=null)
+		{
+			SimpleParser.Else_blockContext elseCTX = ctx.else_block();
+			blockCTX = elseCTX.block();
+			System.out.println("\telse\n\t{");
+			for(int i = 0; i < blockCTX.stat().size();i++)
+			{
+				System.out.print("\t");
+				visit(blockCTX.stat(i));
+			}
+			System.out.println("\t}");
+		}
 		
 		return null;
 	}
-	/*@Override
-	public Object visitWrite(SimpleParser.WriteContext ctx) 
+	@Override
+	public Object visitRead(SimpleParser.ReadContext ctx) 
 	{
-		String texto="";
-		if(!ctx.STRING().getText().isEmpty())
-		{
-			texto = ctx.STRING().getText();
-			System.out.println("\tprintf("+texto+");");
+		String id = ctx.VARID().getText();
+		if (_vars.containsKey(id)) {
+			System.out.println(String.format("\tscanf(\"%s\", &%s);", getVarTypeMode(_vars.get(id)), id));
+		} else {
+    			throw new IllegalArgumentException("Variable '" + id + "' doesn't defined");
 		}
-	    return null;
-	}*/
-//
-//	@Override
-//	public Object visitRead(SimpleParser.ReadContext ctx) {
-//		String id = ctx.ID().getText();
-//		if (_vars.containsKey(id)) {
-//			System.out.println(String.format("\tscanf(\"%s\", &%s);", getVarTypeMode(_vars.get(id)), id));
-//		} else {
-//    			throw new IllegalArgumentException("Variable '" + id + "' doesn't defined");
-//		}
-//		return null; 
-//	}
-//	
+		return null; 
+	}
+	
 	@Override
 	public Object visitWrite(SimpleParser.WriteContext ctx) {
 		if (ctx.VARID().size() > 0) {
@@ -117,20 +134,28 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 		}
 		return null;  
 	}
-	
-//	@Override
-//	public Object visitIf_block(SimpleParser.If_blockContext ctx) {
-//		// Completar
-//		return null; 
-//	}
-//	
+	@Override
+	public Object visitWhile_block(SimpleParser.While_blockContext ctx)
+	{
+		SimpleParser.Condition_blockContext condCTX = ctx.condition_block();
+		SimpleParser.BlockContext blockCTX = condCTX.block();
+		System.out.println("\twhile("+condCTX.condOperation().getText()+")");
+		System.out.println("\t{");
+		for(int i = 0; i < blockCTX.stat().size();i++)
+		{
+			System.out.print("\t");
+			visit(blockCTX.stat(i));
+		}
+		System.out.println("\t}");
+		return null;
+	}
 	private String getVarType(String var_type) {
 		if(var_type.equals("int") || var_type.equals("bool"))
 			return "int";
 		else if(var_type.equals("float"))
 			return "float";
 		else
-			return "char";
+			return "String";
 	}
 //	
 	private String getVarTypeMode(String var_type) {
@@ -140,11 +165,6 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 			return "%f";
 		else
 			return "%s";
-	}
-	
-	private String getStatType(String stat_type)
-	{
-		return "placeholder";
 	}
 //	private String replace(String stat) {
 //		stat.replace("=", "==");

@@ -1,22 +1,22 @@
-inicio
-	entero x
-	entero y
-	entero z
+init
+	int x
+	int y
+	int z
 	
-	si (x = y) { 
+	if (x == y) { 
 		x <- 0
 		y <- 1
-	} sino_si (x > y) {
+	} elif (x > y) {
 		x <- 1
 		z <- 1
-	} sino_si (x <> z) {
+	} elif (x < z) {
 		x <- 0
 		y <- z
-	} sino {
+	} else {
 		x <- 1
 		z <- y
 	}
-	fin_si
-	escribir(x y z)
-	escribir("fin del programa")
-fin
+	fi
+	write(x y z)
+	write("fin del programa")
+end

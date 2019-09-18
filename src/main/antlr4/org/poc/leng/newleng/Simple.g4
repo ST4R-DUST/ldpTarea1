@@ -9,6 +9,7 @@ stat		: declaration
     		| if_block
     		| read_block
     		| write_block 
+    		| while_block
     		;
 
 start_block : INIT	
@@ -19,6 +20,8 @@ end_block	: END
 
 operation  	: operation PLUS operation 				# plus
 			| operation MINUS operation				# minus
+			| operation MULTIPLY operation			# multiply
+			| operation DIVIDE operation			# divide
             | operation ( EQUAL | NQUAL ) operation # comp
             | operation AND operation 				# and
             | operation OR operation 				# or
@@ -29,13 +32,18 @@ operation  	: operation PLUS operation 				# plus
             ;
             
 condOperation	: operation EQUAL EQUAL operation	#equal
-				| operation GT EQUAL operation		#gt
-				| operation LT EQUAL operation		#lt
+				| operation GT EQUAL operation		#gte
+				| operation LT EQUAL operation		#lte
+				| operation GT operation			#gt
+				| operation LT operation			#lt
 				;
 
 
 if_block	: IF condition_block (ELIF condition_block)* (ELSE else_block)? ENDIF
 			;
+
+while_block : WHILE condition_block
+			; 
 
 condition_block	: LPAR condOperation RPAR LBRACE block RBRACE
 				;
@@ -66,6 +74,8 @@ declaration		: var_type VARID
 				| var_type assign  
 				;
 
+
+
 read_block: READ LPAR VARID RPAR # read;
 
 write_block: WRITE LPAR (STRING | VARID+) RPAR # write;
@@ -78,10 +88,12 @@ fragment DOT	: '.'		;
  
 PLUS 	: '+'	;
 MINUS	: '-'	;
+MULTIPLY: '*'	;
+DIVIDE	: '/'	;
 AND		: 'and'	;
 OR		: 'or'	;
 EQUAL	: '='	;
-NQUAL	: '<>'	;
+NQUAL	: '!='	;
 GT		: '>'	;
 LT		: '<'	;
 ASSIGN 	: '<-'	;
@@ -91,16 +103,17 @@ LBRACE	: '{'	;
 RBRACE	: '}'	;
 
 INIT		: 'init'	;
-END		: 'end'		;
-IF		: 'if'		;
+END			: 'end'		;
+IF			: 'if'		;
 ELIF		: 'elif'	;
-ELSE		: 'else'		;
-ENDIF		: 'fi'	;
-READ		: 'read'		;
+ELSE		: 'else'	;
+ENDIF		: 'fi'		;
+WHILE		: 'while'	;
+READ		: 'read'	;
 WRITE		: 'write'	;
-INT_V	: 'int'	;
+INT_V		: 'int'		;
 STRING_V	: 'string'	;
-FLOAT_V		: 'float'		;
+FLOAT_V		: 'float'	;
 BOOLEAN_V	: 'bool'	;
 
 NUMBER	: NAT+				;

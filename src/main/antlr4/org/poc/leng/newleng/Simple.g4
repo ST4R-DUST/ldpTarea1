@@ -22,21 +22,21 @@ operation  	: operation PLUS operation 				# plus
 			| operation MINUS operation				# minus
 			| operation MULTIPLY operation			# multiply
 			| operation DIVIDE operation			# divide
-            | operation ( EQUAL | NQUAL ) operation # comp         
-            | operation GT operation 				# comp
+            | operation EQUAL operation        		# comp	
             | VARID 								# id
             | NUMBER								# num
             | LPAR operation RPAR 					# parens
             ;
             
-condOperation	: operation EQUAL EQUAL operation	#equal
-				| operation GT EQUAL operation		#gte
-				| operation LT EQUAL operation		#lte
-				| operation GT operation			#gt
-				| operation LT operation			#lt
-				| condOperation AND condOperation 	# and
-            	| condOperation OR condOperation 	# or
-            	| LPAR condOperation RPAR 			# paren
+condOperation	: operation EQUAL EQUAL operation	
+				| operation NQUAL operation			
+				| operation GT EQUAL operation		
+				| operation LT EQUAL operation		
+				| operation GT operation			
+				| operation LT operation			
+				| condOperation AND condOperation 	
+            	| condOperation OR condOperation 	
+            	| LPAR condOperation RPAR 			
 				;
 
 
@@ -94,7 +94,7 @@ DIVIDE	: '/'	;
 AND		: ' && '	;
 OR		: ' || '	;
 EQUAL	: '='	;
-NQUAL	: '!='	;
+NQUAL	: '<>'	;
 GT		: '>'	;
 LT		: '<'	;
 ASSIGN 	: '<-'	;

@@ -144,101 +144,15 @@ public interface SimpleListener extends ParseTreeListener {
 	 */
 	void exitPlus(SimpleParser.PlusContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code equal}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * Enter a parse tree produced by {@link SimpleParser#condOperation}.
 	 * @param ctx the parse tree
 	 */
-	void enterEqual(SimpleParser.EqualContext ctx);
+	void enterCondOperation(SimpleParser.CondOperationContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code equal}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * Exit a parse tree produced by {@link SimpleParser#condOperation}.
 	 * @param ctx the parse tree
 	 */
-	void exitEqual(SimpleParser.EqualContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code paren}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void enterParen(SimpleParser.ParenContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code paren}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void exitParen(SimpleParser.ParenContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code or}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void enterOr(SimpleParser.OrContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code or}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void exitOr(SimpleParser.OrContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code and}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnd(SimpleParser.AndContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code and}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnd(SimpleParser.AndContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code lt}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void enterLt(SimpleParser.LtContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code lt}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void exitLt(SimpleParser.LtContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code gte}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void enterGte(SimpleParser.GteContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code gte}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void exitGte(SimpleParser.GteContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code lte}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void enterLte(SimpleParser.LteContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code lte}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void exitLte(SimpleParser.LteContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code gt}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void enterGt(SimpleParser.GtContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code gt}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 */
-	void exitGt(SimpleParser.GtContext ctx);
+	void exitCondOperation(SimpleParser.CondOperationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link SimpleParser#if_block}.
 	 * @param ctx the parse tree

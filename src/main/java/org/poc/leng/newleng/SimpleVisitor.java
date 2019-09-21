@@ -91,61 +91,11 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPlus(SimpleParser.PlusContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code equal}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
+	 * Visit a parse tree produced by {@link SimpleParser#condOperation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitEqual(SimpleParser.EqualContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code paren}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitParen(SimpleParser.ParenContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code or}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOr(SimpleParser.OrContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code and}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnd(SimpleParser.AndContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code lt}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLt(SimpleParser.LtContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code gte}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGte(SimpleParser.GteContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code lte}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLte(SimpleParser.LteContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code gt}
-	 * labeled alternative in {@link SimpleParser#condOperation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGt(SimpleParser.GtContext ctx);
+	T visitCondOperation(SimpleParser.CondOperationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SimpleParser#if_block}.
 	 * @param ctx the parse tree

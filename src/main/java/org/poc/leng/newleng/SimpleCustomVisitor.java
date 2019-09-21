@@ -8,7 +8,7 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 	protected Map<String, String> _vars = new HashMap<String, String>();
 
 	public SimpleCustomVisitor() {}
-//
+	
 	@Override
     public Object visitStart_block(SimpleParser.Start_blockContext ctx) { 
 	    	if(ctx.INIT().getText().equals("init"))    {
@@ -18,7 +18,7 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 		}
 	    return null;
 	}
-//	
+	
 	@Override
 	public Object visitEnd_block(SimpleParser.End_blockContext ctx) {
 	    	if(ctx.END().getText().equals("end"))    {
@@ -61,7 +61,7 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 	{
 		SimpleParser.Condition_blockContext condCTX = ctx.condition_block(0);
 		SimpleParser.BlockContext blockCTX = condCTX.block();
-		System.out.println("\tif("+condCTX.condOperation().getText()+")");
+		System.out.println("\tif("+replaceNot(condCTX.condOperation().getText())+")");
 		System.out.println("\t{");
 		for(int i = 0; i < blockCTX.stat().size();i++)
 		{
@@ -75,7 +75,7 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 			{
 				condCTX = ctx.condition_block(j);
 				blockCTX = condCTX.block();
-				System.out.println("\telse if("+condCTX.condOperation().getText()+")\n\t{");
+				System.out.println("\telse if("+replaceNot(condCTX.condOperation().getText())+")\n\t{");
 				for(int i = 0; i < blockCTX.stat().size();i++)
 				{
 					System.out.print("\t");
@@ -139,7 +139,7 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 	{
 		SimpleParser.Condition_blockContext condCTX = ctx.condition_block();
 		SimpleParser.BlockContext blockCTX = condCTX.block();
-		System.out.println("\twhile("+condCTX.condOperation().getText()+")");
+		System.out.println("\twhile("+replaceNot(condCTX.condOperation().getText())+")");
 		System.out.println("\t{");
 		for(int i = 0; i < blockCTX.stat().size();i++)
 		{
@@ -165,6 +165,24 @@ public class SimpleCustomVisitor extends SimpleBaseVisitor<Object>{
 			return "%f";
 		else
 			return "%s";
+	}
+	
+	private String replaceNot(String condText) //Solución a fuerza bruta
+	{
+		for(int i = 0;i<condText.length();i++)
+		{
+			if(condText.charAt(i) == '<' && i+1 < condText.length())
+			{
+					if(condText.charAt(i+1) == '>')
+					{
+						char[] aux = condText.toCharArray();
+						aux[i] = '!';
+						aux[i+1] = '=';
+						condText = String.valueOf(aux);
+					}
+			}
+		}
+		return condText;
 	}
 
 	

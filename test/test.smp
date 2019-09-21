@@ -16,7 +16,7 @@ init
 		write("godhelpme")
 		x <- 443+213
 	}
-	elif(x+3==5)
+	elif(x+3 == 5)
 	{
 		write("whatsgoingon")
 		y <- 42+32
@@ -37,4 +37,9 @@ init
 		write("aaaa")
 	}	
 	read(x)
+	if(x<>3)
+	{
+		write("kiti")
+	}
+	fi
 end

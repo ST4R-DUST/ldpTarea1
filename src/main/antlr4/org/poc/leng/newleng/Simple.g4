@@ -25,6 +25,7 @@ operation  	: operation PLUS operation 				# plus
             | operation EQUAL operation        		# comp	
             | VARID 								# id
             | NUMBER								# num
+            | BOOLEAN								# boolean
             | LPAR operation RPAR 					# parens
             ;
             
@@ -36,7 +37,8 @@ condOperation	: operation EQUAL EQUAL operation
 				| operation LT operation			
 				| condOperation AND condOperation 	
             	| condOperation OR condOperation 	
-            	| LPAR condOperation RPAR 			
+            	| LPAR condOperation RPAR 
+            	| VARID			
 				;
 
 
@@ -67,12 +69,10 @@ assign 		: VARID ASSIGN
 
 var_type	: INT_V
 			| FLOAT_V 
-			| STRING_V
 			| BOOLEAN_V
 			;
 
 declaration		: var_type VARID
-				| var_type assign  
 				;
 
 
@@ -83,7 +83,7 @@ write_block: WRITE LPAR (STRING | VARID+) RPAR # write;
 
 
 fragment TRUE	: 'true'		;
-fragment FALSE	: 'false'		;
+fragment FALSE	: 'false'	;
 fragment NAT	: [0-9]		;
 fragment DOT	: '.'		;
  
@@ -113,7 +113,6 @@ WHILE		: 'while'	;
 READ		: 'read'	;
 WRITE		: 'write'	;
 INT_V		: 'int'		;
-STRING_V	: 'string'	;
 FLOAT_V		: 'float'	;
 BOOLEAN_V	: 'bool'	;
 

@@ -1,8 +1,8 @@
 init
 	int x
 	int y
-	float kiti
-	string cuerda
+	bool help
+	help <- true
 	write("holi")
 	x <- x-y+x+y
 	y <- y+1
@@ -11,7 +11,7 @@ init
 		write("cringe")
 		x <- 1+2+3
 	}
-	elif(y+1 == 3)
+	elif(help)
 	{
 		write("godhelpme")
 		x <- 443+213

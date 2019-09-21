@@ -100,6 +100,18 @@ public class SimpleBaseListener implements SimpleListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBoolean(SimpleParser.BooleanContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBoolean(SimpleParser.BooleanContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterNum(SimpleParser.NumContext ctx) { }
 	/**
 	 * {@inheritDoc}

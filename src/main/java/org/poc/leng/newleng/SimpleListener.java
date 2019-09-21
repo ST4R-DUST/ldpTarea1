@@ -84,6 +84,18 @@ public interface SimpleListener extends ParseTreeListener {
 	 */
 	void exitParens(SimpleParser.ParensContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code boolean}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void enterBoolean(SimpleParser.BooleanContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code boolean}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void exitBoolean(SimpleParser.BooleanContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code num}
 	 * labeled alternative in {@link SimpleParser#operation}.
 	 * @param ctx the parse tree

@@ -56,6 +56,13 @@ public interface SimpleVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitParens(SimpleParser.ParensContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code boolean}
+	 * labeled alternative in {@link SimpleParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolean(SimpleParser.BooleanContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code num}
 	 * labeled alternative in {@link SimpleParser#operation}.
 	 * @param ctx the parse tree

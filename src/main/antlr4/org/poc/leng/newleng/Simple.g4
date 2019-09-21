@@ -85,21 +85,21 @@ write_block: WRITE LPAR (STRING | VARID+) RPAR # write;
 fragment TRUE	: 'true'		;
 fragment FALSE	: 'false'	;
 fragment NAT	: [0-9]		;
-fragment DOT	: '.'		;
  
 PLUS 	: '+'	;
 MINUS	: '-'	;
 MULTIPLY: '*'	;
 DIVIDE	: '/'	;
-AND		: ' && '	;
-OR		: ' || '	;
+DOT		: '.'	;
+AND		: ' && ';
+OR		: ' || ';
 EQUAL	: '='	;
 NQUAL	: '<>'	;
 GT		: '>'	;
 LT		: '<'	;
 ASSIGN 	: '<-'	;
-LPAR		: '('	;
-RPAR		: ')'	;
+LPAR	: '('	;
+RPAR	: ')'	;
 LBRACE	: '{'	;
 RBRACE	: '}'	;
 
@@ -118,9 +118,9 @@ BOOLEAN_V	: 'bool'	;
 
 NUMBER	: NAT+				;
 FLOAT 	: NUMBER DOT NUMBER	;
-BOOLEAN 	: TRUE | FALSE		;
+BOOLEAN 	: TRUE | FALSE	;
 STRING 	: '"' .*? '"'		;
 
-VARID		: [a-zA-Z]+						;
+VARID		: [a-zA-Z]+					;
 COMMENT	:  '!' .*? '\r'? '\n' -> skip	;
 WS 		: [ \t\r\n]+ -> skip 			;

@@ -48,7 +48,7 @@ int main(void)
 	while(w>0)
 	{
 	
-	printf("\ngato\n");
+	printf("\ngatito\n");
 	
 	w = w-1;
 	}	return 0;

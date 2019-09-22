@@ -1,0 +1,22 @@
+init
+	int x
+	int y
+	int z
+	x <- 500
+	y <- 490
+	z <- x - y
+	if(z == 10)
+	{
+		write("El valor de Z es: ")
+		write(z)
+		while(z <> 0)
+		{
+			z <- z - 1
+			write("\nEl valor de Z es: ")
+			write(z)
+		}
+		write("\n")
+	}
+	fi
+	
+end
